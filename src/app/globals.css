@@ -41,16 +41,16 @@
 
   /* Clean solid buttons */
   .btn-primary {
-    @apply px-6 py-3 rounded-xl bg-[var(--color-primary-blue)] text-white font-semibold transition-all duration-200 hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+    @apply px-6 py-3 min-h-[48px] rounded-xl bg-[var(--color-primary-blue)] text-white font-semibold transition-all duration-200 hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 rounded-xl bg-[var(--color-bg-offwhite)] text-[var(--color-text-dark)] font-semibold border border-[var(--color-border-light)] transition-all duration-200 hover:bg-gray-100 hover:shadow-sm active:translate-y-0;
+    @apply px-6 py-3 min-h-[48px] rounded-xl bg-[var(--color-bg-offwhite)] text-[var(--color-text-dark)] font-semibold border border-[var(--color-border-light)] transition-all duration-200 hover:bg-gray-100 hover:shadow-sm active:translate-y-0;
   }
 
   /* Form inputs */
   .input-field {
-    @apply w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border-light)] text-[var(--color-text-dark)] text-sm transition-all duration-200 focus:outline-none focus:border-[var(--color-primary-blue)] focus:ring-2 focus:ring-[var(--color-primary-blue)]/20;
+    @apply w-full px-4 py-3 min-h-[48px] rounded-xl bg-white border border-[var(--color-border-light)] text-[var(--color-text-dark)] text-sm transition-all duration-200 focus:outline-none focus:border-[var(--color-primary-blue)] focus:ring-2 focus:ring-[var(--color-primary-blue)]/20;
   }
 
   /* Reusable card component (formerly GlassCard) */

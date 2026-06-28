@@ -109,7 +109,7 @@ export default function Navbar() {
               <Link
                 href="/apply"
                 onClick={() => setIsOpen(false)}
-                className="btn-primary text-center mt-2"
+                className="btn-primary text-center mt-2 w-full block"
               >
                 Apply Now
               </Link>

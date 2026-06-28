@@ -73,7 +73,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="font-[var(--font-syne)] text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-[var(--color-text-dark)] mb-6 tracking-tight"
+          className="font-[var(--font-syne)] text-[36px] sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-[var(--color-text-dark)] mb-6 tracking-tight"
         >
           Build something real
           <br />
@@ -129,14 +129,14 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 pt-10 border-t border-[var(--color-border-light)] grid grid-cols-3 gap-6 max-w-2xl mx-auto"
+          className="mt-16 pt-10 border-t border-[var(--color-border-light)] flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-6 max-w-2xl mx-auto"
         >
           {[
             { value: "15", label: "Days" },
             { value: "6", label: "Tracks" },
             { value: "100%", label: "Project-Based" },
           ].map((stat) => (
-            <div key={stat.label} className="text-center">
+            <div key={stat.label} className="text-center sm:flex-1">
               <div className="text-3xl sm:text-4xl font-bold text-[var(--color-text-dark)] font-[var(--font-syne)] mb-1">
                 {stat.value}
               </div>

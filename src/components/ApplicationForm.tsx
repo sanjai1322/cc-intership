@@ -7,9 +7,6 @@ import {
   Globe,
   Brain,
   Palette,
-  PenTool,
-  Film,
-  TrendingUp,
   ChevronRight,
   ChevronLeft,
   Check,
@@ -19,6 +16,10 @@ import {
   Upload,
   ArrowRight,
   Clock,
+  Layers,
+  Terminal,
+  Coffee,
+  MessageSquare,
 } from "lucide-react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
@@ -28,9 +29,10 @@ const tracks = [
   { icon: Globe, name: "Frontend / Web Dev", color: "text-[var(--color-primary-blue)]" },
   { icon: Brain, name: "AI / ML", color: "text-[var(--color-secondary-lavender)]" },
   { icon: Palette, name: "UI/UX Design", color: "text-[var(--color-primary-blue)]" },
-  { icon: PenTool, name: "Content & Social", color: "text-[var(--color-secondary-lavender)]" },
-  { icon: Film, name: "Video Editing", color: "text-[var(--color-primary-blue)]" },
-  { icon: TrendingUp, name: "Lead Generation", color: "text-[var(--color-secondary-lavender)]" },
+  { icon: Layers, name: "Full Stack", color: "text-[var(--color-secondary-lavender)]" },
+  { icon: Terminal, name: "Python / Backend", color: "text-[var(--color-primary-blue)]" },
+  { icon: Coffee, name: "Java Development", color: "text-[var(--color-secondary-lavender)]" },
+  { icon: MessageSquare, name: "Prompt Engineering", color: "text-[var(--color-primary-blue)]" },
 ];
 
 const skillLevels = ["Beginner", "Intermediate", "Advanced"];
@@ -605,12 +607,12 @@ export default function ApplicationForm() {
       </div>
 
       {/* ── Navigation buttons ── */}
-      <div className="flex items-center justify-between w-full mt-8">
+      <div className="flex flex-col sm:flex-row items-center justify-between w-full mt-8 gap-4">
         <button
           onClick={prev}
           disabled={step === 0}
-          className={`btn-secondary flex items-center gap-2 ${
-            step === 0 ? "opacity-0 pointer-events-none" : ""
+          className={`btn-secondary flex items-center justify-center gap-2 w-full sm:w-auto ${
+            step === 0 ? "opacity-0 pointer-events-none hidden sm:flex" : ""
           }`}
         >
           <ChevronLeft size={18} />
@@ -618,7 +620,7 @@ export default function ApplicationForm() {
         </button>
 
         {step < 3 ? (
-          <button onClick={next} className="btn-primary flex items-center gap-2 ml-auto">
+          <button onClick={next} className="btn-primary flex items-center justify-center gap-2 w-full sm:w-auto sm:ml-auto">
             Next Step
             <ChevronRight size={18} />
           </button>
@@ -626,7 +628,7 @@ export default function ApplicationForm() {
           <button
             onClick={handleSubmit}
             disabled={submitting}
-            className="btn-primary flex items-center gap-2 ml-auto"
+            className="btn-primary flex items-center justify-center gap-2 w-full sm:w-auto sm:ml-auto"
           >
             {submitting ? (
               <>
