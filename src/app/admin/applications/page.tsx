@@ -83,17 +83,23 @@ export default function AdminApplicationsPage() {
         if (error) throw error;
 
         // 2. Trigger onboarding welcome email
-        await fetch("/api/send-emails", {
+        const res = await fetch("/api/send-emails", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             action: "onboard",
+            application_id: app.id,
             full_name: app.full_name,
             email: app.email,
             plan: app.plan,
             track: app.track,
           }),
         });
+
+        const data = await res.json();
+        if (!res.ok || !data.success) {
+          throw new Error(data.error || "Failed to send onboarding email");
+        }
 
         // 3. Update local state to reflect paid status
         setApplications((prev) =>

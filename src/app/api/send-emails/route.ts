@@ -183,7 +183,7 @@ function onboardingEmail(name: string, plan: string, track: string): string {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { full_name, email, track, plan, action = "apply" } = body;
+    const { application_id, full_name, email, track, plan, action = "apply" } = body;
 
     if (!process.env.RESEND_API_KEY) {
       console.warn("RESEND_API_KEY not set — skipping emails.");
@@ -193,17 +193,31 @@ export async function POST(request: NextRequest) {
     const resend = getResend();
 
     if (action === "onboard") {
+      console.log('Approve payment called for:', application_id);
+      console.log('Application found:', { full_name, email, track, plan });
+      console.log('Sending email to:', email);
+
       // Send onboarding email
-      const result = await resend.emails.send({
+      const { data, error } = await resend.emails.send({
         from: FROM_EMAIL,
         to: email,
         subject: "Welcome to Code Constellation — you're officially in 🎉",
         html: onboardingEmail(full_name, plan, track),
       });
 
+      console.log('Resend response:', data);
+      console.log('Resend error:', error);
+
+      if (error) {
+        return NextResponse.json(
+          { success: false, error: error.message },
+          { status: 400 }
+        );
+      }
+
       return NextResponse.json({
         success: true,
-        emailId: result.data?.id,
+        emailId: data?.id,
       });
     } else {
       // Default: Send confirmation email to applicant
