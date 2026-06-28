@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-syne: 'Syne', sans-serif;
+  --font-sans: 'DM Sans', sans-serif;
+
+  /* New Light Theme Palette */
+  --color-bg-white: #ffffff;
+  --color-bg-offwhite: #f8f9fc;
+  
+  --color-primary-blue: #2E50E7; /* Royal blue matching the logo's bottom crescent */
+  --color-secondary-lavender: #8676f1; /* Periwinkle-lavender matching the logo's top-left crescent */
+  --color-success-green: #10b981;
+  
+  --color-text-dark: #0f0f0f;
+  --color-text-body: #4b5563;
+  --color-text-muted: #9ca3af;
+  
+  --color-border-light: #e5e7eb;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[var(--color-bg-white)] text-[var(--color-text-body)] font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-[var(--font-syne)] text-[var(--color-text-dark)] font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Layout utilities */
+  .container-wide {
+    @apply w-full max-w-[1200px] mx-auto px-6;
+  }
+
+  /* Clean solid buttons */
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl bg-[var(--color-primary-blue)] text-white font-semibold transition-all duration-200 hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-xl bg-[var(--color-bg-offwhite)] text-[var(--color-text-dark)] font-semibold border border-[var(--color-border-light)] transition-all duration-200 hover:bg-gray-100 hover:shadow-sm active:translate-y-0;
+  }
+
+  /* Form inputs */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border-light)] text-[var(--color-text-dark)] text-sm transition-all duration-200 focus:outline-none focus:border-[var(--color-primary-blue)] focus:ring-2 focus:ring-[var(--color-primary-blue)]/20;
+  }
+
+  /* Reusable card component (formerly GlassCard) */
+  .premium-card {
+    @apply bg-white rounded-2xl border border-[var(--color-border-light)] shadow-[0_2px_16px_rgba(0,0,0,0.08)] transition-all duration-300;
+  }
+}
+
+/* Base styles for scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
