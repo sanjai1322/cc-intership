@@ -81,7 +81,7 @@ CREATE POLICY "Allow public updates" ON applications
 
 1. Create an account at [resend.com](https://resend.com)
 2. Get your API key from the [API Keys page](https://resend.com/api-keys)
-3. (Optional) Verify your domain for branded sender addresses — otherwise emails are sent from `onboarding@resend.dev`
+3. (Optional) Verify your domain for branded sender addresses — otherwise emails are sent from `hello@codeconstellation.in`
 
 ### 4. Set Up Razorpay (Payments)
 

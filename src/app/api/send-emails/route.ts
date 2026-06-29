@@ -13,7 +13,7 @@ function getResend(): Resend {
   return _resend;
 }
 
-const FROM_EMAIL = "Code Constellation <onboarding@resend.dev>"; // Replace with your verified domain
+const FROM_EMAIL = "Code Constellation <hello@codeconstellation.in>";
 
 // ── Branded email wrapper ──
 function emailWrapper(content: string): string {
